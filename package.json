@@ -1,0 +1,49 @@
+{
+  "name": "testt",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cls && npx node esbuild.watch.mjs",
+    "build": "npx tsx watch server.ts",
+    "tailwind-dev": "npx tailwindcss -i ./resources/index.css -o ./public/style.css -w -p",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@babel/preset-env": "^7.24.8",
+    "@babel/preset-typescript": "^7.24.7",
+    "@inertiajs/svelte": "^1.2.0",
+    "@popperjs/core": "^2.11.8",
+    "@types/node": "^20.14.10",
+    "axios": "^1.7.2",
+    "bcrypt": "^5.1.1",
+    "concurrently": "^8.2.2",
+    "cors": "^2.8.5",
+    "dayjs": "^1.11.11",
+    "dotenv": "^16.4.5",
+    "esbuild": "^0.23.0",
+    "esbuild-svelte": "^0.8.1",
+    "esbuild-svelte-inertia": "^0.0.5",
+    "express": "^4.19.2",
+    "flowbite": "^2.4.1",
+    "flowbite-svelte": "^0.46.15",
+    "hyper-express": "^6.16.4",
+    "knex": "^3.1.0",
+    "live-directory": "^3.0.3",
+    "mysql2": "^3.10.3",
+    "svelte": "^4.2.18",
+    "tailwind-merge": "^2.4.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.3",
+    "uuid": "^10.0.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.39",
+    "tailwindcss": "^3.4.6"
+  }
+}
