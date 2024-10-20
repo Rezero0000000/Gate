@@ -8,7 +8,7 @@ import bcrypt from "bcrypt"
 
 export class UserServices {
 
-   static async register (req: CreateUser): Promise<User> {
+   static async register (req: CreateUser, Response): Promise<User> {
        const validatedRequest = await Validation.validate(UserValidation.CREATE, req);
        validatedRequest.password = await bcrypt.hash(validatedRequest.password, 10);
 

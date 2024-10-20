@@ -1,5 +1,4 @@
 import { MiddlewareNext } from "hyper-express";
-import { UserRequest } from "../types/types";
 import { db } from "../database/db";
 
 export const authMiddleware = async (request , response, next: MiddlewareNext) => {
