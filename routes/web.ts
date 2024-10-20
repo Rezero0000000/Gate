@@ -15,7 +15,7 @@ web.get("/register",UserController.register);
 web.post("/register",UserController.create);
 
 web.get("/login", UserController.login)
-web.post("/login",UserController.auth);
+web.post("/login", UserController.auth);
 
 // dashboard
 web.get("/dashboard", BasicController.dashboard);

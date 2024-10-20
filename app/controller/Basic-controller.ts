@@ -1,5 +1,3 @@
-import { Request, Response } from "hyper-express"
-
 export class BasicController {
     static async index (Request, Response) {
         Response.inertia("home")
