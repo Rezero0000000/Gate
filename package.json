@@ -6,7 +6,7 @@
     "dev": "cls && concurrently \"npm run tailwind-dev\" \"npx node esbuild.watch.mjs\"",
     "build": "npx tsx watch server.ts",
     "tailwind-dev": "npx tailwindcss -i ./resources/index.css -o ./public/style.css -w -p",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "db": "sqlite3 ./app/database/dev.sqlite3"
   },
   "keywords": [],
   "author": "",

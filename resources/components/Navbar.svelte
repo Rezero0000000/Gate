@@ -1,8 +1,8 @@
 <script>
     let pages = [
       {name: "Home", url: "/"},
-      {name: "About", url: "/about"},
-      {name: "Blog", url: "/blog"}
+      {name: "About", url: "/dashboard"},
+      {name: "Blog", url: "/"}
     ]
 
     import axios from "axios";
