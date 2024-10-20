@@ -1,23 +1,28 @@
-import { MiddlewareNext, Response } from "hyper-express";
+import { MiddlewareNext } from "hyper-express";
 import { UserRequest } from "../types/types";
 import { db } from "../database/db";
 
-export const authMiddleware = async (req:UserRequest, res: Response, next: MiddlewareNext) => {
-    const token = req.get('X-API-TOKEN');
+export const authMiddleware = async (request , response, next: MiddlewareNext) => {
+   if (request.cookies.sessionId) {
+      const session = await db.from("sessions")
+         .where("sessionId", request.cookies.sessionId)
+         .first();
 
-    if (token) {
-        const user = await db("users").where("token", token).first(); 
+      if (session) {
+         const user = await db.from("users")
+            .where("id", 0) 
+            .first();
 
-        if (user) {
-            req.user = user;
-            next();
-            return;
-        }
-    }
+         request.user = user;
 
-    res.status(401).json({
-        errors: "Unauthorized"
-    });
-    res.end()
+         request.share = {
+            user: request.user,
+         };
+        
+         return next();
+      }
+   } else {
+    response.redirect("/login")
+   }
 }
 

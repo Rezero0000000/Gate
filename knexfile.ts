@@ -1,17 +1,12 @@
 import type { Knex } from "knex";
 
-// Update with your config settings.
-
 const config: { [key: string]: Knex.Config } = {
   development: {
-    client: "mysql2",
+    client: "better-sqlite3",
     connection: {
-      host: '127.0.0.1',
-      port: 3306,
-      user: 'root',
-      password: 'pacman',
-      database: 'ingfo',
+      filename: "./app/database/dev.sqlite3"
     },
+    useNullAsDefault : true
   },
 
   staging: {
@@ -25,7 +20,6 @@ const config: { [key: string]: Knex.Config } = {
       min: 2,
       max: 10
     },
-    
     migrations: {
       tableName: "knex_migrations"
     }

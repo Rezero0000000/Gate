@@ -17,7 +17,7 @@ web.get("/user", BasicController.user);
 web.get("/404", BasicController.notFound);
 
 // User
-web.delete("/logout", UserController.logout);
+web.post("/logout", UserController.logout);
 
 web.get("/register",UserController.register);
 web.post("/register",UserController.create);

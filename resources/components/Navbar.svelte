@@ -4,6 +4,18 @@
       {name: "About", url: "/about"},
       {name: "Blog", url: "/blog"}
     ]
+
+    import axios from "axios";
+    
+    async function submitData(event) {
+    try {
+        event.preventDefault()
+
+        const response = await axios.post('/logout');
+    } catch (error) {
+        console.error(error);
+    }
+    }
 </script>
 
 <nav class="bg-white border-gray-300 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900   w-full">
@@ -16,12 +28,12 @@
         
           <span class="flex hidden md:flex">
             <div >
-              <a href="/login" class="block py-2 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Login</a>
+              <button on:click={submitData} class="block py-2 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Logout</button>
             </div>
      
-            <div class="sm:ml-5">
+            <!-- <div class="sm:ml-5">
               <a href="/register" class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Register</a>
-            </div>
+            </div> -->
           </span>    
      
           <button data-collapse-toggle="mobile-menu-2" type="button" class="inline-flex items-center px-1 py-2 mr-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-2" aria-expanded="false">

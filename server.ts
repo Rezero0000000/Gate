@@ -35,8 +35,6 @@ var cors = require('cors')
 
 webserver.use(cors())
 
-
-
 // rendering svelte files
 // require('svelte/register');
 
@@ -49,13 +47,13 @@ webserver.use(
     })
 );
 
-// web.use((req, res, next) => {
-//     if (req.path !== '/login' && req.path !== '/register') {
-//         authMiddleware(req, res, next);
-//     } else {
-//         next();
-//     }
-// });
+web.use((req, res, next) => {
+    if (req.path !== '/login' && req.path !== '/register') {
+        authMiddleware(req, res, next);
+    } else {
+        next();
+    }
+});
 
 webserver.use(web);
 

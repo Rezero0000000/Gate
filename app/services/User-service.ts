@@ -5,7 +5,7 @@ import { UserValidation } from "../validation/user-validation";
 import { Validation } from "../validation/validation";
 import bcrypt from "bcrypt"
 import { v4 as uuid } from "uuid";
-import { UserRequest } from "../types/types";
+
 
 export class UserServices {
    static async register (req: CreateUser): Promise<User> {
@@ -32,46 +32,54 @@ export class UserServices {
        return ToUserResponse(user)
    } 
 
-   static async login (req: LoginUser, res: Response): Promise<User> {
-        const validatedRequest = await Validation.validate(UserValidation.LOGIN, req);
 
-        const isEmailMatch = await db("users").where("email", validatedRequest.email).first();
+
+
+   static async login (req: LoginUser, res){
+        const validatedRequest = await Validation.validate(UserValidation.LOGIN, req);
+        console.log(validatedRequest.email)
+
+        const isEmailMatch = await db("users").where("email", req.email).first();
+        console.log(isEmailMatch)
         
         if (!isEmailMatch) {
-            res.status(400).json({
-                message: "Email or password is wrong"
-              })
-              res.end();
-    
+            console.log("email g match")
         }
-
+         console.log(validatedRequest)
         const isPasswordMatch = await bcrypt.compare(validatedRequest.password, isEmailMatch.password);
 
         if (!isPasswordMatch) {
-            res.status(400).json({
-                message: "Email or passsword is wrong"
-              })
-              res.end();
+            console.log('hhh')
         }
 
-        const token = uuid();
-        await db("users").where("email", validatedRequest.email).first().update({
-            token: token
-        });
-        isEmailMatch.token = token
-        console.log(isEmailMatch)
-        return ToUserResponse(isEmailMatch);
+          // Generate session token
+          const sessionId = uuid();
+
+          // Save session to database
+          await db.from("sessions").insert({
+             sessionId: sessionId,
+             userId: isEmailMatch.id,
+          });
+ 
+          // Set session token in cookie
+          res.cookie('sessionId', sessionId, {
+             httpOnly: true,
+             maxAge: 3600000 // 1 hour
+          });
+          
+          res.redirect("/register")
+          console.log("berhasil")
    }
 
-   static async logout (req: UserRequest): Promise<string> {
-    const status = await db("users").where("token", req.user!.token).update({
-        token: null
-    });
+   static async logout (request, response) {
+    const sessionId = request.cookies.sessionId;
+        console.log('hi')
+        if (sessionId) {
+        await db.from("sessions").where("sessionId", sessionId).delete();
 
-    if (!status) {
-        console.log("Gagal logout");
+        response.clearCookie("sessionId");
+        }
+
+        response.redirect("/login");
     }
-
-    return "Bye Bye"
-   }
 }

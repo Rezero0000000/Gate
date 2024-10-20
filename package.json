@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "cls && npx node esbuild.watch.mjs",
+    "dev": "cls && concurrently \"npm run tailwind-dev\" \"npx node esbuild.watch.mjs\"",
     "build": "npx tsx watch server.ts",
     "tailwind-dev": "npx tailwindcss -i ./resources/index.css -o ./public/style.css -w -p",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -20,6 +20,7 @@
     "@types/node": "^20.14.10",
     "axios": "^1.7.2",
     "bcrypt": "^5.1.1",
+    "better-sqlite3": "^11.4.0",
     "concurrently": "^8.2.2",
     "cors": "^2.8.5",
     "dayjs": "^1.11.11",
@@ -33,7 +34,7 @@
     "hyper-express": "^6.16.4",
     "knex": "^3.1.0",
     "live-directory": "^3.0.3",
-    "mysql2": "^3.10.3",
+    "sqlite3": "^5.1.7",
     "svelte": "^4.2.18",
     "tailwind-merge": "^2.4.0",
     "ts-node": "^10.9.2",
