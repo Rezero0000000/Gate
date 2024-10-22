@@ -2,8 +2,9 @@ require('dotenv').config()
 import inertia from "./app/middlewares/inertia";
 import web from "./routes/web";
 import { authMiddleware } from "./app/middlewares/auth";
-
 const HyperExpress = require('hyper-express');
+
+import { connectToWhatsApp } from "./app/services/Baileys";
 
 import https from "https"
 import axios from "axios";
@@ -38,6 +39,20 @@ webserver.use(cors())
 // rendering svelte files
 // require('svelte/register');
 
+
+// Middleware untuk CORS
+web.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*"); // Izinkan semua origin
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS"); // Izinkan metode HTTP yang diperlukan
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization"); // Header yang diizinkan
+
+    // Jika request adalah OPTIONS (pre-flight), kirimkan response dengan status 204 (No Content)
+    if (req.method === 'OPTIONS') {
+        return res.status(204).send();
+    }
+
+    next(); // Lanjutkan ke route berikutnya
+});
 
 webserver.use(
     inertia({
