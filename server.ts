@@ -128,8 +128,8 @@ webserver.get('*', (request, response) => {
 
 
 // Activate webserver by calling .listen(port, callback);
-webserver.listen(process.env.PORT).then(() => {
-    console.log(`Server is running at http://localhost:${process.env.PORT}`);
+webserver.listen(6544).then(() => {
+    console.log(`Server is running at http://localhost:${6544}`);
 }).catch((err: any) => {
     console.log(err);
 }) 

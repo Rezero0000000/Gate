@@ -15,10 +15,6 @@ export class BasicController {
         Response.inertia("dashboard/dashboard")
     }
 
-    static async contact (Request, Response) {
-        Response.inertia("dashboard/contact")
-    }
-
     static async send (Request, Response) {
         Response.inertia("dashboard/singleSend")
     }

@@ -15,8 +15,6 @@
             const response = await axios.post('/send', {
                 message: message
             });
-
-            console.log(email)
         } catch (error) {
             console.error(error);
         }
