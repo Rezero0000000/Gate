@@ -5,5 +5,10 @@
 - auth middleware [done]
 - register [done]
 - login [done]
-- response 
-- dashboard
+- response [Dpne]
+- dashboard [Done]
+- Send message
+- Send message Image
+- Auto Reply 
+- Update UI
+- Schedule message

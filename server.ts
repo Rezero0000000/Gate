@@ -4,8 +4,7 @@ import web from "./routes/web";
 import { authMiddleware } from "./app/middlewares/auth";
 const HyperExpress = require('hyper-express');
 
-import { connectToWhatsApp } from "./app/services/Baileys";
-
+import { Bailey } from "./app/services/Baileys";
 import https from "https"
 import axios from "axios";
 let webserver = new HyperExpress.Server();
@@ -54,6 +53,8 @@ web.use((req, res, next) => {
     next(); // Lanjutkan ke route berikutnya
 });
 
+// Bailey.connectToWhatsApp();
+    
 webserver.use(
     inertia({
         view: "index",

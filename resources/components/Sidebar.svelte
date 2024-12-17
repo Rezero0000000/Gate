@@ -172,7 +172,7 @@
             >Single Send</a
           >
         </li>
-
+<!-- 
         <li class="">
           <div
             class="relative flex justify-between text-gray-500 hover:text-white focus-within:text-white"
@@ -240,7 +240,7 @@
               </li>
             </ul>
           </div>
-        </li>
+        </li> -->
       </ul>
     </div>
 
@@ -280,7 +280,7 @@
         </li>
       </ul>
     </div>
-    <div class="pl-6 pr-4 py-4 bg-[#232529] flex items-center justify-between">
+    <!-- <div class="pl-6 pr-4 py-4 bg-[#232529] flex items-center justify-between">
       <div class="flex items-center">
         <div
           class="relative w-8 h-8 rounded-full before:absolute before:w-2 before:h-2 before:bg-green-500 before:rounded-full before:right-0 before:bottom-0 before:ring-1 before:ring-white"
@@ -311,5 +311,5 @@
           ></path>
         </svg>
       </button>
-    </div>
+    </div> -->
   </div>

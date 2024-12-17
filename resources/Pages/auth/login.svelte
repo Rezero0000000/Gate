@@ -1,6 +1,7 @@
 <script>
     import axios from 'axios';
     async function submitData(event) {
+        console.log("HI")
         try {
             event.preventDefault()
             const email = document.getElementById("email").value;

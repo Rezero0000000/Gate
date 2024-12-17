@@ -1,3 +1,7 @@
+import { db } from "../database/db"
+import { Bailey} from "../services/Baileys"
+const fs = require("fs")
+
 export class BasicController {
     static async index (Request, Response) {
         Response.inertia("home")
@@ -16,7 +20,28 @@ export class BasicController {
     }
 
     static async send (Request, Response) {
-        Response.inertia("dashboard/singleSend")
+
+        const contacts = await db("contact").select("*");
+        Response.inertia("dashboard/singleSend", {
+            contacts: contacts
+        })
     }
 
+    static async sendMessage(request, response) {
+        const req = await request.json();
+        Bailey.sendMessage(req.target, req.message);
+    }
+
+    static async sendMedia (Request, Response) {
+        const contacts = await db("contact").select("*");
+        Response.inertia("dashboard/sendMedia", {
+            contacts: contacts
+        })
+    }
+
+    static async sendMessageMedia(request, response) {
+        const req = await request.json();
+        console.log(req)
+        // Bailey.sendImage(req.target, fs.readFileSync(req.image), req.caption);
+    }
 }

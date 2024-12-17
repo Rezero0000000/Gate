@@ -1,5 +1,7 @@
 <script>
-    import Sidebar from "../../components/Sidebar.svelte";
+    export let contacts = [];
+   
+   import Sidebar from "../../components/Sidebar.svelte";
     import { Breadcrumb, BreadcrumbItem } from 'flowbite-svelte';
     import { Label, Input } from 'flowbite-svelte';
     import { Button } from 'flowbite-svelte';
@@ -11,9 +13,11 @@
         try {
             event.preventDefault()
             const message = document.getElementById("message").value;
+            const target = document.getElementById("target").value;
 
             const response = await axios.post('/send', {
-                message: message
+                message: message,
+                target: target
             });
         } catch (error) {
             console.error(error);
@@ -54,12 +58,18 @@
                     <Input id="default-input" placeholder="Default input" />
                   </div>
                   <div class="mb-6">
-                    <Label for="default-input" class="block mb-2">To</Label>
-                    <Input id="default-input" placeholder="Default input" />
+                    <label for="target" class="block text-sm font-medium text-gray-700">Select an option</label>
+                    <select id="target" name="target" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                      {#each contacts as contact }
+                        
+                          <option value="{contact.phoneNumber}">{contact.name}</option>
+                      {/each}
+                     
+                    </select>
                   </div>
                 </div>
                 <div class="w-full">
-                  <Label for="default-input" class="block mb-2">Message</Label>
+                  <Label for="message" class="block mb-2">Message</Label>
                   <Textarea {...textareaprops} />
                   <Button  on:click={submitData} color="blue">Send</Button>
                 </div>
