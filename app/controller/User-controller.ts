@@ -27,7 +27,6 @@ export class UserController {
         if (Request.cookies.sessionId) {
             Response.redirect("/");
         }
-
         Response.inertia("auth/login")
     }
 

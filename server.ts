@@ -44,12 +44,10 @@ web.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*"); // Izinkan semua origin
     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS"); // Izinkan metode HTTP yang diperlukan
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization"); // Header yang diizinkan
-
     // Jika request adalah OPTIONS (pre-flight), kirimkan response dengan status 204 (No Content)
     if (req.method === 'OPTIONS') {
         return res.status(204).send();
     }
-
     next(); // Lanjutkan ke route berikutnya
 });
 

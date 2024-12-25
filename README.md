@@ -7,7 +7,7 @@
 - login [done]
 - response [Dpne]
 - dashboard [Done]
-- Send message
+- Send message [Done]
 - Send message Image
 - Auto Reply 
 - Update UI

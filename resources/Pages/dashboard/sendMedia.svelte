@@ -1,26 +1,28 @@
 <script>
     export let contacts = [];
-   
-   import Sidebar from "../../components/Sidebar.svelte";
+    import Sidebar from "../../components/Sidebar.svelte";
     import { Breadcrumb, BreadcrumbItem } from 'flowbite-svelte';
     import { Label, Input } from 'flowbite-svelte';
     import { Button } from 'flowbite-svelte';
-
     import { Textarea } from 'flowbite-svelte';
-
     import axios from 'axios';
     async function submitData(event) {
         try {
             event.preventDefault()
             const message = document.getElementById("message").value;
-            const target = document.getElementById("target").value;
-            const image = document.getElementById("image").files;
-            console.log(image)
-            // const response = await axios.post('/send-media', {
-            //     caption: message,
-            //     target: target,
-            //     image: image
-            // });
+        const target = document.getElementById("target").value;
+        const image = document.getElementById("image").files[0];
+
+        const formData = new FormData();
+        formData.append("caption", message);
+        formData.append("target", target);
+        formData.append("image", image);
+
+        const response = await axios.post('/send-media', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
         } catch (error) {
             console.error(error);
         }
@@ -72,7 +74,7 @@
                 </div>
                 <div>
                     <Label for="image" class="block mb-2">Image</Label>
-                    <input type="file" id="image">
+                    <input type="file" id="image" accept="image/jpeg, image/png">
                 </div>
                 <div class="w-full">
                   <Label for="message" class="block mb-2">Description</Label>
