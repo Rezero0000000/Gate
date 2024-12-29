@@ -8,7 +8,9 @@
 - response [Dpne]
 - dashboard [Done]
 - Send message [Done]
-- Send message Image
-- Auto Reply 
+- Contact [Done]
+- Send message Image [Done]
 - Update UI
+- Authentikasi management in baileys
 - Schedule message
+- Auto Reply 
