@@ -12,6 +12,8 @@ web.get("/login", UserController.login)
 web.post("/login", UserController.auth);
 web.get("/404", BasicController.notFound);
 
+// Devices
+
 // Contact
 web.get("/contact", ContactController.index);
 web.get("/contact/edit/:id", ContactController.edit);

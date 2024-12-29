@@ -11945,6 +11945,18 @@ input[type="range"].range-lg::-moz-range-thumb{
   margin-top:9rem
 }
 
+.mb-0{
+  margin-bottom:0px
+}
+
+.mb-7{
+  margin-bottom:1.75rem
+}
+
+.mb-9{
+  margin-bottom:2.25rem
+}
+
 .block{
   display:block
 }

@@ -3,7 +3,7 @@ import { Bailey} from "../services/Baileys"
 const multer = require('multer');
 const fs = require('fs');
 
-// Konfigurasi penyimpanan
+// Mutler Configuration
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, 'uploads/');
@@ -13,7 +13,6 @@ const storage = multer.diskStorage({
     }
 });
 
-// Filter file berdasarkan MIME type
 const fileFilter = (req, file, cb) => {
     const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png'];
     if (allowedTypes.includes(file.mimetype)) {
