@@ -14,3 +14,20 @@
 - Authentikasi management in baileys
 - Schedule message
 - Auto Reply 
+
+
+
+
+
+
+
+
+
+- Check Function
+- List Function
+- Update UI Again
+
+
+
+-------- LIST FUNCTION -----------
+- Crud Device

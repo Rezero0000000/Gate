@@ -27,7 +27,7 @@
       <BreadcrumbItem href="/" home>Home</BreadcrumbItem>
     </Breadcrumb>
     <div class="bg-white mt-10 p-10 shadow-lg ">
-      <h1 class="ml-5 text-xl">Devices</h1>
+      <h1 class="ml-5 text-xl">Contact</h1>
       
     <div class="mt-10">
       <button class="rounded ml-5 mb-5 border border-slate-300 py-1 px-5 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-slate-800 hover:border-slate-800 focus:text-white focus:bg-slate-800 focus:border-slate-800 active:border-slate-800 active:text-white active:bg-slate-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button">
@@ -47,8 +47,8 @@
                     </div>
 
                     <div>
-                      <a href="/contact/edit/{contact.id}"><Button size="xs" class="mr-2" color="blue">Edit</Button></a>
-                      <Button on:click={deleteContact(contact.id)} size="xs" color="red">Delete</Button>
+                      <a href="/contact/edit/{contact.id}"><Button size="xs" class="mr-2 bg-white outline outline-1  text-black hover:text-white hover:bg-[#3c84f4]" >Edit</Button></a>
+                      <Button on:click={deleteContact(contact.id)} size="xs" class=" bg-white  outline outline-1 text-black hover:text-white hover:bg-[#ff4655]">Delete</Button>
                     </div>
                       </div>
                   </div>

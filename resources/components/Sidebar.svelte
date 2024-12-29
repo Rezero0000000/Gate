@@ -28,12 +28,6 @@
         </a>
       </li>
       <li>
-        <a href="/send-media"class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
-          Send Image
-        </a>
-      </li>
-
-      <li>
         <a href="/send"class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
           Schedule Message
         </a>
@@ -44,9 +38,6 @@
           Auto Replay
         </a>
       </li>
-
-      
-
       
 <!-- 
       <li>
@@ -108,7 +99,7 @@
   </div>
 
   <div class="sticky inset-x-0 bottom-0 border-t border-gray-100">
-    <a href="/"class="block  px-4 py-2 text-sm font-medium text-center text-gray-500 hover:bg-red-500 hover:text-gray-700">
+    <a href="/"  class="block  px-4 py-2 text-sm font-medium text-center text-black hover:text-white hover:bg-[#ff4655]" >
       Logout
     </a>
   </div>

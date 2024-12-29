@@ -9,7 +9,6 @@
     import { Button } from 'flowbite-svelte';
     import axios from "axios";
   
-  
     async function editContact (id) {
       try {
         const name = document.getElementById("name").value;
@@ -22,19 +21,18 @@
           console.error(error);
       }
     }
-    
   </script>
-  <div class="flex ">
-    <Sidebar></Sidebar>
-  
-    <div class=" w-full h-full ml-80 p-20 bg-[#e7edf9]">
-      <Breadcrumb aria-label="Solid bg-sky-900 breadcrumb example" color= "red"solid>
-        <BreadcrumbItem href="/dashboard" home>Home</BreadcrumbItem>
-        <BreadcrumbItem href="/contact">Contact</BreadcrumbItem>
-        <BreadcrumbItem href="/send">Edit</BreadcrumbItem>
-      </Breadcrumb>
-  
-      <div class=" mt-16 bg-white pt-10 px-10 pb-28">
+    
+
+<div class="flex ">
+  <Sidebar></Sidebar>
+  <div class=" w-full ml-30 p-14 bg-[#F9FAFB]">
+    <Breadcrumb aria-label=" shadow-lg  Solid bg-sky-900 breadcrumb example" color= "red"solid>
+      <BreadcrumbItem href="/" home>Home</BreadcrumbItem>
+    </Breadcrumb>
+    <div class="bg-white mt-10 p-10 shadow-lg ">
+      <h1 class="ml-5 text-xl">Edit Contact</h1>
+      <div class="  bg-white pt-10 px-10 pb-28">
               <form action="" class=" ">
                 <div class="w-96 mr-20">
                   <div class="mb-6">
@@ -46,8 +44,12 @@
                     <Input id="phoneNumber" value="{phoneNumber}" placeholder="Phone Number" />
                   </div>
                 </div>
-                <Button  on:click={editContact(contact.id)} color="blue">Send</Button>
+                <Button  on:click={editContact(contact.id)} class="mr-2 bg-white outline outline-1  text-black hover:text-white hover:bg-[#3c84f4]">Send</Button>
+                <a href="/contact"><Button  class="mr-2 bg-white outline outline-1  text-black hover:text-white hover:bg-black" >Back</Button></a>
               </form>
       </div>
     </div>
   </div>
+</div>
+
+
